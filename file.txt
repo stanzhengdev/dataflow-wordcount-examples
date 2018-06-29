@@ -1,0 +1,10 @@
+found 0 associations
+found 1 connections:
+     1:	flags=82<CONNECTED,PREFERRED>
+	outif en0
+	src 10.0.20.68 port 52964
+	dst 104.199.71.165 port 1337
+	rank info not available
+	TCP aux info available
+
+Connection to moar.ctfcompetition.com port 1337 [tcp/menandmice-dns] succeeded!

@@ -10,6 +10,14 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
+                gcloud compute instances list
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh '''
                 mvn compile exec:java \
                 -Dexec.mainClass=com.example.WordCount\
                 -Dexec.args="--project=$GCP_PROJECT_ID \
@@ -17,11 +25,6 @@ pipeline {
                     --runner=BlockingDataflowPipelineRunner \
                     --output=gs://$GCP_OUTPUT_DIRECTORY"
                 '''
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
             }
         }
         stage('Deploy') {
